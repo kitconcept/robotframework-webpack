@@ -56,7 +56,8 @@ class WebpackLibrary:
             args,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            bufsize=1
+            bufsize=1,
+            cwd=self.path,
         )
         self.webpack_pid = self.webpack_process.pid
         with self.webpack_process.stdout:
