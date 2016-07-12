@@ -21,8 +21,7 @@ A robot framework library for Webpack.
 Introduction
 ------------
 
-WebpackLibrary ...
-
+WebpackLibrary is a tiny Robot Framework library to start and stop Webpack.
 
 Development
 -----------

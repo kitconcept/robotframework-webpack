@@ -23,10 +23,10 @@ class WebpackLibrary:
     def __init__(self, host="0.0.0.0", port=8000, path='.', content_base='dist', debug=False):
         """WebpackLibrary can be imported with optional arguments.
 
-        `host` is the hostname of your Django instance. Default value is
-        '127.0.0.1'.
+        `host` is the hostname webpack dev server will bind to. Default value
+        is '127.0.0.1'.
 
-        `port` is the port number of your Django instance. Default value is
+        `port` is the port webpack dev server will listen. Default value is
         8000.
 
         Examples:
