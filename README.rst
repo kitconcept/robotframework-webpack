@@ -27,7 +27,7 @@ and stop the Webpack dev server.
 Installation
 ------------
 
-Install robotframework-webpacklibrary with pip:
+Install robotframework-webpacklibrary with pip::
 
   $ pip install robotframework-webpacklibrary
 
@@ -35,7 +35,7 @@ Install robotframework-webpacklibrary with pip:
 Usage
 -----
 
-In order to write your first robot test, make sure that you include Selenium2Library and WebpackLibrary. Create a test.robot file with the following content:
+In order to write your first robot test, make sure that you include Selenium2Library and WebpackLibrary. Create a test.robot file with the following content::
 
   *** Variables ***
 
