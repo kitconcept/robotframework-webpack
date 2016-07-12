@@ -11,7 +11,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 install:
 - sudo pip install -r requirements.txt
-- python setup.py develop
+- sudo python setup.py develop
 - npm install -g webpack
 - npm install -g webpack-dev-server
 - npm install
