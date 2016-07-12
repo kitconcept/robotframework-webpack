@@ -27,9 +27,9 @@ and stop the Webpack dev server.
 Installation
 ------------
 
-Install robotframework-webpacklibrary with pip::
+Install robotframework-webpack with pip::
 
-  $ pip install robotframework-webpacklibrary
+  $ pip install robotframework-webpack
 
 
 Usage
