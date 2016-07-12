@@ -21,19 +21,72 @@ A robot framework library for Webpack.
 Introduction
 ------------
 
-WebpackLibrary is a tiny Robot Framework library to start and stop Webpack.
+WebpackLibrary is a Robot Framework library for Webpack. It allows to start
+and stop the Webpack dev server.
+
+Installation
+------------
+
+Install robotframework-webpacklibrary with pip:
+
+  $ pip install robotframework-webpacklibrary
+
+
+Usage
+-----
+
+In order to write your first robot test, make sure that you include Selenium2Library and WebpackLibrary. Create a test.robot file with the following content:
+
+  *** Variables ***
+
+  ${HOST}                 127.0.0.1
+  ${PORT}                 7447
+  ${BROWSER}              chrome
+  ${SERVER}               http://${HOST}:${PORT}
+
+
+  *** Settings ***
+
+  Documentation   WebpackLibrary Acceptance Tests
+  Library         Selenium2Library  timeout=10  implicit_wait=0
+  Library         WebpackLibrary  ${HOST}  ${PORT}  debug=False
+  Suite Setup     Start Webpack and Open Browser
+  Suite Teardown  Stop Webpack and Close Browser
+
+
+  *** Test Cases ***
+
+  Scenario: Webpack Dev Server
+    Go To  ${SERVER}
+    # Amend this line to check for the real content of your app. Otherwise this test will fail.
+    Wait until page contains  Hello World
+    Page Should Contain  Hello World
+
+
+  *** Keywords ***
+
+  Start Webpack and Open Browser
+    Start Webpack
+    Open Browser  ${SERVER}  ${BROWSER}
+    Set Window Size  1280  1024
+
+  Stop Webpack and Close Browser
+    Stop Webpack
+    Close Browser
+
+
 
 Development
 -----------
+
+Project Setup::
 
   $ virtualenv-2.7 .py27
   $ source .py27/bin/activate
   $ pip install -r requirements.txt
   $ python setup.py develop
 
+Run Test::
+
   $ pybot test.robot
 
-npm init
-npm install webpack --save-dev
-npm install webpack-dev-server --save-dev
-npm install html-webpack-plugin --save-dev
