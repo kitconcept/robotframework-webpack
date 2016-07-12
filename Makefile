@@ -15,8 +15,8 @@ build:
 	(cd tests/test-basic && npm install)
 test:
 	@echo "Run Tests"
-	.py27/bin/pybot test.robot
+	.py27/bin/pybot tests
 
 test-phantomjs:
 	@echo "Run Tests"
-	.py27/bin/pybot --variable BROWSER:phantomjs test.robot
+	.py27/bin/pybot --variable BROWSER:phantomjs tests

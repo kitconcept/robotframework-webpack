@@ -26,7 +26,7 @@ install:
 - npm install -g webpack-dev-server
 - (cd tests/test-basic && npm install)
 script:
-- pybot test.robot
+- pybot tests
 notifications:
   email:
   - stollenwerk@kitconcept.com

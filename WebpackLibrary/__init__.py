@@ -20,7 +20,7 @@ class WebpackLibrary:
     # GLOBAL => Only one instance is created during the whole test execution.
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
-    def __init__(self, host="0.0.0.0", port=8000, path='.', content_base='dist', debug=False):
+    def __init__(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, debug=False):
         """WebpackLibrary can be imported with optional arguments.
 
         `host` is the hostname webpack dev server will bind to. Default value
@@ -37,6 +37,7 @@ class WebpackLibrary:
         self.port = port
         self.path = os.path.realpath(path)
         self.content_base = 'dist'
+        self.config = config
         if debug.lower() == 'true':
             self.debug = True
         else:
@@ -52,6 +53,10 @@ class WebpackLibrary:
             '--port={}'.format(self.port),
             '--content-base=%s' % self.content_base,
         ]
+        if self.config:
+            args.append('--config')
+            args.append('{}/{}'.format(self.path, self.config))
+
         self.webpack_process = subprocess.Popen(
             args,
             stdout=subprocess.PIPE,

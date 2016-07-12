@@ -1,8 +1,10 @@
 1.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+New Features:
 
+- Add config parameter.
+  [timo]
 
 1.0a1 (2016-07-12)
 ------------------
