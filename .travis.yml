@@ -22,9 +22,9 @@ before_script:
 install:
 - sudo pip install -r requirements.txt
 - sudo python setup.py develop
-- (cd app && npm install -g webpack)
-- (cd app && npm install -g webpack-dev-server)
-- (cd app && npm install)
+- npm install -g webpack
+- npm install -g webpack-dev-server
+- (cd tests/test-basic && npm install)
 script:
 - pybot test.robot
 notifications:

@@ -10,7 +10,7 @@ ${SERVER}               http://${HOST}:${PORT}
 
 Documentation   WebpackLibrary Acceptance Tests
 Library         Selenium2Library  timeout=10  implicit_wait=0
-Library         WebpackLibrary  ${HOST}  ${PORT}  debug=True  path=app
+Library         WebpackLibrary  ${HOST}  ${PORT}  path=tests/test-basic  debug=True
 Suite Setup     Start Webpack and Open Browser
 Suite Teardown  Stop Webpack and Close Browser
 
