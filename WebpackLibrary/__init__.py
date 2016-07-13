@@ -20,19 +20,13 @@ class WebpackLibrary:
     # GLOBAL => Only one instance is created during the whole test execution.
     ROBOT_LIBRARY_SCOPE = 'TEST SUITE'
 
-    def __init__(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, debug=False):
+    def __init__(self):
         """WebpackLibrary can be imported with optional arguments.
-
-        `host` is the hostname webpack dev server will bind to. Default value
-        is '127.0.0.1'.
-
-        `port` is the port webpack dev server will listen. Default value is
-        8000.
-
-        Examples:
-        | Library | Selenium2Library | timeout=15        | implicit_wait=0.5  | # Sets default timeout to 15 seconds and the default implicit_wait to 0.5 seconds. |  # noqa
-        | Library | WebpackLibrary   | 127.0.0.1         | 55001              | path=mysite/mysite | manage=mysite/manage.py | settings=mysite.settings | db=mysite/db.sqlite3 | # Sets default hostname to 127.0.0.1 and the default port to 55001.                |  # noqa
         """
+        pass
+
+    def start_webpack(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, debug=False):
+        """Start Webpack Dev Server."""
         self.host = host
         self.port = port
         self.path = os.path.realpath(path)
@@ -42,9 +36,6 @@ class WebpackLibrary:
             self.debug = True
         else:
             self.debug = False
-
-    def start_webpack(self):
-        """Start Webpack Dev Server."""
         logger.console("-" * 78)
         args = [
             'webpack-dev-server',

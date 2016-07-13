@@ -10,7 +10,7 @@ ${SERVER}               http://${HOST}:${PORT}
 
 Documentation   WebpackLibrary Acceptance Tests
 Library         Selenium2Library  timeout=10  implicit_wait=0
-Library         WebpackLibrary  ${HOST}  ${PORT}  path=tests/test-basic  debug=True
+Library         WebpackLibrary
 Suite Setup     Start Webpack and Open Browser
 Suite Teardown  Stop Webpack and Close Browser
 
@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack
+  Start Webpack  ${HOST}  ${PORT}  path=tests/test-basic  debug=True
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 

@@ -1,6 +1,13 @@
 1.0a4 (unreleased)
 ------------------
 
+Breaking Changes:
+
+- Move all arguments from WebpackLibrary import to 'Start Webpack' keyword.
+  [timo]
+
+Bugfixes:
+
 - Remove requests from dependencies.
   [timo]
 
@@ -11,7 +18,7 @@
 1.0a3 (2016-07-13)
 ------------------
 
-Fixes:
+Bugfixes:
 
 - Fix content_base param.
   [timo]
