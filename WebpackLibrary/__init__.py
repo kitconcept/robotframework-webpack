@@ -54,9 +54,17 @@ class WebpackLibrary:
             '--content-base=%s' % self.content_base,
         ]
         if self.config:
+            full_path = '{}/{}'.format(self.path, self.config)
+            if not os.path.isfile(self.config):
+                logger.console(
+                    'ERROR: Could not find Webpack configuration {}'.format(
+                        full_path
+                    )
+                )
+                return
             args.append('--config')
-            logger.console('{}/{}'.format(self.path, self.config))
-            args.append('{}/{}'.format(self.path, self.config))
+            logger.console(full_path)
+            args.append(full_path)
 
         self.webpack_process = subprocess.Popen(
             args,
