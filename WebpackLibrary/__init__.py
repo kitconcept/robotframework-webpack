@@ -74,6 +74,12 @@ class WebpackLibrary:
             cwd=self.path,
         )
         self.webpack_pid = self.webpack_process.pid
+        if self.webpack_process.returncode != 0:
+            logger.console(
+                'ERROR: Webpack could not be started {}'.format(
+                    self.webpack_process.communicate()[1]
+                )
+            )
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
                 if self.debug:
