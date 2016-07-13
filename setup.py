@@ -24,7 +24,7 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
     ],
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-    keywords='robotframework django test',
+    keywords='robotframework webpack javascript',
     author='Timo Stollenwerk',
     author_email='stollenwerk@kitconcept.com',
     url='https://kitconcept.com',
@@ -35,7 +35,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'requests',
         'robotframework',
         'robotframework-selenium2library',
     ],
