@@ -1,7 +1,10 @@
 1.0a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+New Features:
+
+- Add 'webpack_bin_path' param to 'Start Webpack' keyword.
+  [timo]
 
 
 1.0a4 (2016-07-13)

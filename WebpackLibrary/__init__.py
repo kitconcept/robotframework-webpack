@@ -25,7 +25,7 @@ class WebpackLibrary:
         """
         pass
 
-    def start_webpack(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, debug=False):
+    def start_webpack(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, webpack_bin_path=False, debug=False):
         """Start Webpack Dev Server."""
         self.host = host
         self.port = port
@@ -36,9 +36,12 @@ class WebpackLibrary:
             self.debug = True
         else:
             self.debug = False
+        webpack_bin = 'webpack-dev-server'
+        if webpack_bin_path:
+            webpack_bin = '{}/{}'.format(self.path, webpack_bin_path)
         logger.console("-" * 78)
         args = [
-            'webpack-dev-server',
+            webpack_bin,
             '--inline',
             '--bail',
             '--port={}'.format(self.port),
@@ -67,6 +70,8 @@ class WebpackLibrary:
             )
         except OSError as e:
             logger.console('ERROR: Fail to call webpack {}'.format(e))
+            logger.console('Webpack was called with the following args:')
+            [logger.console(x) for x in args]
         self.webpack_pid = self.webpack_process.pid
 
         stdout = []
