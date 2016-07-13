@@ -55,6 +55,7 @@ class WebpackLibrary:
         ]
         if self.config:
             args.append('--config')
+            logger.console('{}/{}'.format(self.path, self.config))
             args.append('{}/{}'.format(self.path, self.config))
 
         self.webpack_process = subprocess.Popen(
