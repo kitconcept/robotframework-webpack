@@ -38,7 +38,6 @@ setup(
         'requests',
         'robotframework',
         'robotframework-selenium2library',
-        'six',
     ],
     entry_points="""
     # -*- Entry points: -*-

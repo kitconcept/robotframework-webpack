@@ -54,9 +54,17 @@ class WebpackLibrary:
             '--content-base=%s' % self.content_base,
         ]
         if self.config:
+            full_path = '{}/{}'.format(self.path, self.config)
+            if not os.path.isfile(self.config):
+                logger.console(
+                    'ERROR: Could not find Webpack configuration {}'.format(
+                        full_path
+                    )
+                )
+                return
             args.append('--config')
-            logger.console('{}/{}'.format(self.path, self.config))
-            args.append('{}/{}'.format(self.path, self.config))
+            logger.console(full_path)
+            args.append(full_path)
 
         self.webpack_process = subprocess.Popen(
             args,
@@ -66,17 +74,26 @@ class WebpackLibrary:
             cwd=self.path,
         )
         self.webpack_pid = self.webpack_process.pid
+
+        stdout = []
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
                 if self.debug:
                     logger.console(line)
-                    print line
+                    stdout.append(line)
                 if 'bundle is now VALID' in line:
                     logger.console(
                         "Webpack Dev Server ready (PID: %s)" % self.webpack_pid,
                     )
                     logger.console("-" * 78)
                     break
+        if stdout:
+            return
+
+        logger.console('ERROR: Webpack could not be started')
+        with self.webpack_process.stderr:
+            for line in iter(self.webpack_process.stderr.readline, b''):
+                logger.console(line)
 
     def stop_webpack(self):
         """Stop Webpack Dev server."""
