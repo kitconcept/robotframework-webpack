@@ -49,7 +49,7 @@ In order to write your first robot test, make sure that you include Selenium2Lib
 
   Documentation   WebpackLibrary Acceptance Tests
   Library         Selenium2Library  timeout=10  implicit_wait=0
-  Library         WebpackLibrary  ${HOST}  ${PORT}  debug=False
+  Library         WebpackLibrary
   Suite Setup     Start Webpack and Open Browser
   Suite Teardown  Stop Webpack and Close Browser
 
@@ -66,7 +66,7 @@ In order to write your first robot test, make sure that you include Selenium2Lib
   *** Keywords ***
 
   Start Webpack and Open Browser
-    Start Webpack
+    Start Webpack  ${HOST}  ${PORT}  debug=False
     Open Browser  ${SERVER}  ${BROWSER}
     Set Window Size  1280  1024
 
