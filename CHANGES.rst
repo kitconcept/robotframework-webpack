@@ -1,4 +1,4 @@
-1.0a4 (unreleased)
+1.0a4 (2016-07-13)
 ------------------
 
 Breaking Changes:
