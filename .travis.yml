@@ -25,6 +25,7 @@ install:
 - npm install -g webpack
 - npm install -g webpack-dev-server
 - (cd tests/test-basic && npm install)
+- (cd tests/test-config-file && npm install)
 script:
 - pybot tests/test-basic/test.robot
 - pybot tests/test-config-file/test.robot
