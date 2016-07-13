@@ -1,5 +1,5 @@
 robotframework==3.0
-robotframework-selenium2library
+robotframework-selenium2library==2.9.2
 robotframework-debuglibrary==0.4
 Selenium==2.53.1
 twine==1.6.3
