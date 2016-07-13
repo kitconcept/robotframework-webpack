@@ -1,7 +1,13 @@
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Fixes:
+
+- Fix content_base param.
+  [timo]
+
+- Log OSErrors when calling webpack.
+  [timo]
 
 
 1.0a2 (2016-07-13)
