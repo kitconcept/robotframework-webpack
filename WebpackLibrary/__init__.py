@@ -36,7 +36,7 @@ class WebpackLibrary:
         self.host = host
         self.port = port
         self.path = os.path.realpath(path)
-        self.content_base = 'dist'
+        self.content_base = os.path.realpath(content_base)
         self.config = config
         if debug.lower() == 'true':
             self.debug = True
@@ -66,13 +66,16 @@ class WebpackLibrary:
             logger.console(full_path)
             args.append(full_path)
 
-        self.webpack_process = subprocess.Popen(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            bufsize=1,
-            cwd=self.path,
-        )
+        try:
+            self.webpack_process = subprocess.Popen(
+                args,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                bufsize=1,
+                cwd=self.path,
+            )
+        except OSError as e:
+            logger.console('ERROR: Fail to call webpack {}'.format(e))
         self.webpack_pid = self.webpack_process.pid
 
         stdout = []
