@@ -3,7 +3,7 @@
 
 New Features:
 
-- Add config parameter.
+- Add config parameter to WebpackLibrary.
   [timo]
 
 1.0a1 (2016-07-12)
