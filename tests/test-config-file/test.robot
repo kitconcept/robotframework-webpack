@@ -8,7 +8,7 @@ ${SERVER}               http://${HOST}:${PORT}
 
 *** Settings ***
 
-Documentation   WebpackLibrary Acceptance Tests
+Documentation   WebpackLibrary Acceptance Tests with Config File
 Library         Selenium2Library  timeout=10  implicit_wait=0
 Library         WebpackLibrary  ${HOST}  ${PORT}  config=tests/test-config-file/webpack.custom.config.js  debug=True
 Suite Setup     Start Webpack and Open Browser
@@ -17,7 +17,7 @@ Suite Teardown  Stop Webpack and Close Browser
 
 *** Test Cases ***
 
-Scenario: Webpack Dev Server
+Scenario: Webpack Dev Server with Config File
   Go To  ${SERVER}
   Wait until page contains  Hello World
   Page Should Contain  Hello World
