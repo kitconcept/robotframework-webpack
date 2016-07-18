@@ -1,4 +1,4 @@
-1.0a6 (unreleased)
+1.0a6 (2016-07-18)
 ------------------
 
 - Allow to use 'Start Webpack' keyword without a debug attribute set. This
