@@ -7,6 +7,8 @@
 1.0a6 (2016-07-18)
 ------------------
 
+Bugfixes:
+
 - Allow to use 'Start Webpack' keyword without a debug attribute set. This
   fixes https://github.com/kitconcept/robotframework-webpack/issues/2.
   [timo]
