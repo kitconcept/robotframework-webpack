@@ -32,7 +32,7 @@ class WebpackLibrary:
         self.path = os.path.realpath(path)
         self.content_base = os.path.realpath(content_base)
         self.config = config
-        if debug.lower() == 'true':
+        if isinstance(debug, str) and debug.lower() == 'true':
             self.debug = True
         else:
             self.debug = False
@@ -86,13 +86,6 @@ class WebpackLibrary:
                     )
                     logger.console("-" * 78)
                     break
-        if stdout:
-            return
-
-        logger.console('ERROR: Webpack could not be started')
-        with self.webpack_process.stderr:
-            for line in iter(self.webpack_process.stderr.readline, b''):
-                logger.console(line)
 
     def stop_webpack(self):
         """Stop Webpack Dev server."""

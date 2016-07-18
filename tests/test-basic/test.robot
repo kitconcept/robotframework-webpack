@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  ${HOST}  ${PORT}  path=tests/test-basic  debug=True
+  Start Webpack  ${HOST}  ${PORT}  path=tests/test-basic
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 
