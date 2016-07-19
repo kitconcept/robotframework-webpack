@@ -1,7 +1,10 @@
 1.0a7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Bugfixes:
+
+- Do not log the webpack path.
+  [timo]
 
 
 1.0a6 (2016-07-18)

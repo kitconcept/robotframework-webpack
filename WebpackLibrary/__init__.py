@@ -57,7 +57,6 @@ class WebpackLibrary:
                 )
                 return
             args.append('--config')
-            logger.console(full_path)
             args.append(full_path)
 
         try:
