@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server with Config File
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  ${HOST}  ${PORT}  config=tests/test-config-file/webpack.custom.config.js  debug=True
+  Start Webpack  ${HOST}  ${PORT}  config=tests/test-config-file/webpack.custom.config.js
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 
