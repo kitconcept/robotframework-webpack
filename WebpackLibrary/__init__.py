@@ -18,7 +18,7 @@ class WebpackLibrary:
     # TEST CASE => New instance is created for every test case.
     # TEST SUITE => New instance is created for every test suite.
     # GLOBAL => Only one instance is created during the whole test execution.
-    ROBOT_LIBRARY_SCOPE = 'TEST SUITE'
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self):
         """WebpackLibrary can be imported with optional arguments.

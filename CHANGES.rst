@@ -1,7 +1,9 @@
 1.0a8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change ROBOT_LIBRARY_SCOPE to 'GLOBAL'. It does not make sense to fire up
+  webpack for every single test.
+  [timo]
 
 
 1.0a7 (2016-07-19)
