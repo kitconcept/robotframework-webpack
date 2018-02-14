@@ -36,8 +36,11 @@ class WebpackLibrary:
         # for attr in ('stdin', 'stdout', 'stderr'):
         #     setattr(sys, attr, getattr(sys, '__%s__' % attr))
         # pdb.set_trace()
+        try:
+            self.path = os.path.realpath(path)
+        except:
+           logger.console('ERROR: File not found in path: {}'.format(path))
 
-        self.path = os.path.realpath(path)
         if isinstance(debug, str) and debug.lower() == 'true':
             self.debug = True
         else:

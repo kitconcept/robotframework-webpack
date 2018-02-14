@@ -25,6 +25,7 @@ install:
 - npm install -g webpack-dev-server
 - (cd tests/test-basic && npm install)
 - (cd tests/test-config-file && npm install)
+- (cd tests/test-create-react-app && npm install)
 script:
 - pybot tests
 notifications:
