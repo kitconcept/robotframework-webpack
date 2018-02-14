@@ -1,8 +1,5 @@
 language: node_js
 node_js:
-- 4.4.7
-- 6.9.1
-- 7.1.0
 - 8.9.4
 cache:
   directories:
@@ -15,7 +12,7 @@ addons:
     packages:
       - google-chrome-stable
 before_script:
-  - wget "http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip"
+  - wget "http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
   - "export DISPLAY=:99.0"
