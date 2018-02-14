@@ -56,7 +56,15 @@ class WebpackLibrary:
                 cwd=self.path,
             )
         except OSError as e:
-            logger.console('ERROR: Starting Webpack failed with: {}'.format(e))
+            logger.console(
+                'ERROR: Starting Webpack failed with: {}'.format(e)
+            )
+            logger.console(
+                'command: {}'.format(command)
+            )
+            logger.console(
+                'path: {}'.format(path)
+            )
 
         if not getattr(self, 'webpack_process', False):
             print('\n\n')  # noqa
