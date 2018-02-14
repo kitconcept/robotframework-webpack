@@ -1,7 +1,7 @@
 *** Variables ***
 
 ${HOST}                 127.0.0.1
-${PORT}                 7447
+${PORT}                 8080
 ${BROWSER}              chrome
 ${SERVER}               http://${HOST}:${PORT}
 
@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  ${HOST}  ${PORT}  path=tests/test-basic
+  Start Webpack  node_modules/webpack-dev-server/bin/webpack-dev-server.js  path=tests/test-basic-webpack-2  check_webpack_output_for_string=Compiled successfully  debug=true
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 
