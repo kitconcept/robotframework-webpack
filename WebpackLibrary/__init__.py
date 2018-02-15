@@ -10,7 +10,7 @@ ROBOT_LIBRARY_DOC_FORMAT = 'reST'
 
 
 class WebpackLibrary:
-    """WebpackLibrary is a library to start and stop Webpack Dev Server.
+    """WebpackLibrary is a Robot Framework library to start and stop Webpack.
     """
 
     webpack_pid = None
@@ -21,21 +21,31 @@ class WebpackLibrary:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self):
-        """WebpackLibrary can be imported with optional arguments.
+        """WebpackLibrary can be imported without any optional arguments.
         """
         pass
 
     def start_webpack(self,
-                      command,
+                      command='npm start',
                       path='.',
                       check='bundle is now VALID',
                       debug=False):
-        """Start Webpack Dev Server."""
-        # import sys
-        # import pdb
-        # for attr in ('stdin', 'stdout', 'stderr'):
-        #     setattr(sys, attr, getattr(sys, '__%s__' % attr))
-        # pdb.set_trace()
+        """Start Webpack.
+        The `Start Webpack` keyword allows to provide additional arguments.
+
+        `command` is the command that is used to start Webpack. Default value
+        is 'npm start'.
+
+        `path` is the path to your project where the Webpack config can be
+        found. Default value is '.' (the current directory).
+
+        `check` is the string that will be used to determine when the Webpack
+        compile process has ended. Default value is 'bundle is not VALID'.
+
+        Examples:
+        | Start Webpack |                    |                |                               |  # noqa
+        | Start Webpack | command=yarn start | path=frontend/ | check='Compilation completed' |  # noqa
+        """
         try:
             self.path = os.path.realpath(path)
         except:
@@ -105,7 +115,7 @@ class WebpackLibrary:
                     break
 
     def stop_webpack(self):
-        """Stop Webpack Dev server."""
+        """Stop Webpack."""
         os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
         if self.debug:
             logger.console(
