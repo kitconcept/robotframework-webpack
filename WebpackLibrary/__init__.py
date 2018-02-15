@@ -28,10 +28,9 @@ class WebpackLibrary:
     def start_webpack(self,
                       command='npm start',
                       path='.',
-                      check='bundle is now VALID',
+                      check='Compiled successfully',
                       debug=False):
-        """Start Webpack.
-        The `Start Webpack` keyword allows to provide additional arguments.
+        """The `Start Webpack` keyword allows to provide additional arguments.
 
         `command` is the command that is used to start Webpack. Default value
         is 'npm start'.
@@ -40,7 +39,7 @@ class WebpackLibrary:
         found. Default value is '.' (the current directory).
 
         `check` is the string that will be used to determine when the Webpack
-        compile process has ended. Default value is 'bundle is not VALID'.
+        compile process has ended. Default value is 'Compiled successfully'.
 
         Examples:
         | Start Webpack |                    |                |                               |  # noqa
