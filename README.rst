@@ -1,5 +1,5 @@
 ==============================================================================
-A robot framework library for Webpack.
+A Robot Framework library for Webpack.
 ==============================================================================
 
 .. image:: https://travis-ci.org/kitconcept/robotframework-webpack.svg?branch=master
@@ -40,7 +40,7 @@ In order to write your first robot test, make sure that you include Selenium2Lib
   *** Variables ***
 
   ${HOST}                 127.0.0.1
-  ${PORT}                 7447
+  ${PORT}                 8080
   ${BROWSER}              chrome
   ${SERVER}               http://${HOST}:${PORT}
 
@@ -66,7 +66,7 @@ In order to write your first robot test, make sure that you include Selenium2Lib
   *** Keywords ***
 
   Start Webpack and Open Browser
-    Start Webpack  ${HOST}  ${PORT}  debug=False
+    Start Webpack  yarn start
     Open Browser  ${SERVER}  ${BROWSER}
     Set Window Size  1280  1024
 
@@ -75,49 +75,27 @@ In order to write your first robot test, make sure that you include Selenium2Lib
     Close Browser
 
 
-Example with a custom Webpack config and a node environment variable::
+Keywords
+--------
 
-  *** Variables ***
+Start Webpack: Starts the webpack process. The keyword take the command line command to start Webpack (e.g. 'yarn start').
 
-  ${HOSTNAME}             127.0.0.1
-  ${PORT}                 3000
-  ${SERVER}               http://${HOSTNAME}:${PORT}/
-  ${BROWSER}              chrome
+  Start Webpack  yarn start
 
+Optional parameters are:
 
-  *** Settings ***
+  - path: relative or absolute path to the path where the command should be executed.
+  - check: string that the keyword looks for in the Webpack output to know that Webpack has been fully started (default is 'Compiled successfully').
+  - debug: returns debug information
 
-  Documentation   Webpack Starter Angular 2 Acceptance Tests
-  Library         Process
-  Library         DebugLibrary
-  Library         OperatingSystem
-  Library         Selenium2Library  timeout=10  implicit_wait=0
-  Library         WebpackLibrary
-  Suite Setup     Test Setup
-  Suite Teardown  Test Teardown
+Example with all parameters set:
+  Start Webpack  yarn start
+  ..  path=tests/test-create-react-app
+  ..  check=Compiled successfully
+  ..  debug=True
 
-
-  *** Keywords ***
-
-  Test Setup
-    Set Environment Variable  NODE_ENV  development
-    Start Webpack  ${HOSTNAME}  ${PORT}  config=webpack.config.js  webpack_bin_path=node_modules/webpack-dev-server/bin/webpack-dev-server.js  content_base=src  debug=True
-    Open Browser  ${SERVER}  ${BROWSER}
-    Set Window Size  1280  1024
-
-  Test Teardown
-    Stop Webpack
-    Close Browser
-
-
-  *** Test Cases ***
-
-  Scenario: As a visitor I can visit the front page
-    Go To  ${SERVER}
-    Wait until page contains  Hello world
-    Page should contain  Hello world
-
-
+Stop Webpack: Stopps the webpack process that has been started with 'Start Webpack'.
+The keyword has no parameters.
 
 Development
 -----------

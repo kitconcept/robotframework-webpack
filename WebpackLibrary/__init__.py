@@ -25,41 +25,29 @@ class WebpackLibrary:
         """
         pass
 
-    def start_webpack(self, host="0.0.0.0", port=8000, path='.', content_base='dist', config=False, webpack_bin_path=False, debug=False):
+    def start_webpack(self,
+                      command,
+                      path='.',
+                      check='bundle is now VALID',
+                      debug=False):
         """Start Webpack Dev Server."""
-        self.host = host
-        self.port = port
-        self.path = os.path.realpath(path)
-        self.content_base = os.path.realpath(content_base)
-        self.config = config
+        # import sys
+        # import pdb
+        # for attr in ('stdin', 'stdout', 'stderr'):
+        #     setattr(sys, attr, getattr(sys, '__%s__' % attr))
+        # pdb.set_trace()
+        try:
+            self.path = os.path.realpath(path)
+        except:
+           logger.console('ERROR: File not found in path: {}'.format(path))
+
         if isinstance(debug, str) and debug.lower() == 'true':
             self.debug = True
         else:
             self.debug = False
-        webpack_bin = 'webpack-dev-server'
-        if webpack_bin_path:
-            webpack_bin = '{}/{}'.format(self.path, webpack_bin_path)
-        logger.console("-" * 78)
-        args = [
-            webpack_bin,
-            '--inline',
-            '--bail',
-            '--port={}'.format(self.port),
-            '--content-base=%s' % self.content_base,
-        ]
-        if self.config:
-            full_path = '{}/{}'.format(self.path, self.config)
-            if not os.path.isfile(self.config):
-                logger.console(
-                    'ERROR: Could not find Webpack configuration {}'.format(
-                        full_path
-                    )
-                )
-                return
-            args.append('--config')
-            args.append(full_path)
 
         try:
+            args = command.split(' ')
             self.webpack_process = subprocess.Popen(
                 args,
                 stdout=subprocess.PIPE,
@@ -68,28 +56,55 @@ class WebpackLibrary:
                 cwd=self.path,
             )
         except OSError as e:
-            logger.console('ERROR: Fail to call webpack {}'.format(e))
-            logger.console('Webpack was called with the following args:')
-            [logger.console(x) for x in args]
-        self.webpack_pid = self.webpack_process.pid
+            logger.console(
+                'ERROR: Starting Webpack failed with: {}'.format(e)
+            )
+            logger.console(
+                'command: {}'.format(command)
+            )
+            logger.console(
+                'path: {}'.format(path)
+            )
 
+        if not getattr(self, 'webpack_process', False):
+            print('\n\n')  # noqa
+            print('ERROR: Starting Webpack failed with:\n')  # noqa
+            print(e)  # noqa
+            print('\n')  # noqa
+            exit(1)
+
+        if self.webpack_process.returncode == 1:
+            print('\n\n')  # noqa
+            print('ERROR: Starting Webpack failed with exit code: {}\n'.format(  # noqa
+                self.webpack_process.returncode
+            ))
+            print(self.webpack_process.communicate('n\n')[0])  # noqa
+            print('\n')  # noqa
+            exit(1)
+
+        self.webpack_pid = self.webpack_process.pid
+        if self.debug:
+            logger.console(
+                "Webpack process started (PID: %s)" % self.webpack_pid,
+            )
         stdout = []
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
                 if self.debug:
                     logger.console(line)
                     stdout.append(line)
-                if 'bundle is now VALID' in line:
-                    logger.console(
-                        "Webpack Dev Server ready (PID: %s)" % self.webpack_pid,
-                    )
-                    logger.console("-" * 78)
+                if check in line:
+                    if self.debug:
+                        logger.console(
+                            "Webpack process ready (PID: %s)" %
+                            self.webpack_pid,
+                        )
                     break
 
     def stop_webpack(self):
         """Stop Webpack Dev server."""
         os.kill(self.webpack_pid, signal.SIGKILL)
-        logger.console(
-            "Webpack Dev Server stopped (PID: %s)" % self.webpack_pid,
-        )
-        logger.console("-" * 78)
+        if self.debug:
+            logger.console(
+                "Webpack process stopped (PID: %s)" % self.webpack_pid,
+            )

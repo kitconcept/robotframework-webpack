@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-- 4.4.7
-- 6.9.1
-- 7.1.0
+- 8.9.4
 cache:
   directories:
     - node_modules
@@ -14,7 +12,7 @@ addons:
     packages:
       - google-chrome-stable
 before_script:
-  - wget "http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip"
+  - wget "http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
   - "export DISPLAY=:99.0"
@@ -23,11 +21,10 @@ before_script:
 install:
 - sudo pip install -r requirements.txt
 - sudo python setup.py develop
-- npm install -g webpack
-- npm install -g webpack-dev-server
 - (cd tests/test-basic && npm install)
+- (cd tests/test-basic-webpack-2 && npm install)
 - (cd tests/test-config-file && npm install)
-- (cd tests/test-local-webpack && npm install)
+- (cd tests/test-create-react-app && npm install)
 script:
 - pybot tests
 notifications:

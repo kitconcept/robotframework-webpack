@@ -1,7 +1,7 @@
 *** Variables ***
 
 ${HOST}                 127.0.0.1
-${PORT}                 7447
+${PORT}                 3000
 ${BROWSER}              chrome
 ${SERVER}               http://${HOST}:${PORT}
 
@@ -19,14 +19,14 @@ Suite Teardown  Stop Webpack and Close Browser
 
 Scenario: Webpack Dev Server
   Go To  ${SERVER}
-  Wait until page contains  Hello World
-  Page Should Contain  Hello World
+  Wait until page contains  Welcome to React
+  Page Should Contain  Welcome to React
 
 
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  ${HOST}  ${PORT}  path=tests/test-basic  webpack_bin_path=node_modules/webpack-dev-server/bin/webpack-dev-server.js  debug=True
+  Start Webpack  command=yarn start  path=tests/test-create-react-app  check=Compiled successfully
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 
