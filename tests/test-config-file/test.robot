@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server with Config File
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.custom.config.js  path=tests/test-config-file  check_webpack_output_for_string=Compiled successfully  debug=true
+  Start Webpack  node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.custom.config.js  path=tests/test-config-file  check=Compiled successfully  debug=true
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 

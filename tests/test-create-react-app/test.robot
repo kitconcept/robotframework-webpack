@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  command=yarn start  path=tests/test-create-react-app  check_webpack_output_for_string=Compiled successfully
+  Start Webpack  command=yarn start  path=tests/test-create-react-app  check=Compiled successfully
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 

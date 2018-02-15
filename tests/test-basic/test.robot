@@ -26,7 +26,7 @@ Scenario: Webpack Dev Server
 *** Keywords ***
 
 Start Webpack and Open Browser
-  Start Webpack  node_modules/webpack-dev-server/bin/webpack-dev-server.js  path=tests/test-basic  check_webpack_output_for_string=Compiled successfully  debug=true
+  Start Webpack  node_modules/webpack-dev-server/bin/webpack-dev-server.js  path=tests/test-basic  check=Compiled successfully  debug=true
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 

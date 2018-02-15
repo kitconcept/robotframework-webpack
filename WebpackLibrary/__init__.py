@@ -28,7 +28,7 @@ class WebpackLibrary:
     def start_webpack(self,
                       command,
                       path='.',
-                      check_webpack_output_for_string='bundle is now VALID',
+                      check='bundle is now VALID',
                       debug=False):
         """Start Webpack Dev Server."""
         # import sys
@@ -93,7 +93,7 @@ class WebpackLibrary:
                 if self.debug:
                     logger.console(line)
                     stdout.append(line)
-                if check_webpack_output_for_string in line:
+                if check in line:
                     if self.debug:
                         logger.console(
                             "Webpack process ready (PID: %s)" %
