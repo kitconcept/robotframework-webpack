@@ -1,7 +1,8 @@
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix ReST in README.
+  [timo]
 
 
 1.0.0 (2018-02-15)
