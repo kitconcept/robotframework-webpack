@@ -15,7 +15,7 @@ setup(
     description="A Robot Framework library for Webpack.",
     long_description=long_description,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: Apache Software License',
         'Environment :: Web Environment',
         'Framework :: Robot Framework',
