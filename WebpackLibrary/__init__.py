@@ -48,12 +48,15 @@ class WebpackLibrary:
 
         try:
             args = command.split(' ')
+            # start process in a new process group (preexec_fn)
+            # see https://stackoverflow.com/a/22582602/644831 for details
             self.webpack_process = subprocess.Popen(
                 args,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 bufsize=1,
                 cwd=self.path,
+                preexec_fn=os.setsid,
             )
         except OSError as e:
             logger.console(
@@ -103,7 +106,7 @@ class WebpackLibrary:
 
     def stop_webpack(self):
         """Stop Webpack Dev server."""
-        os.kill(self.webpack_pid, signal.SIGKILL)
+        os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
         if self.debug:
             logger.console(
                 "Webpack process stopped (PID: %s)" % self.webpack_pid,
