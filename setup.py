@@ -19,7 +19,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Environment :: Web Environment',
         'Framework :: Robot Framework',
-        'Framework:: Robot Framework:: Library',
+        'Framework :: Robot Framework :: Library',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
