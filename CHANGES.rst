@@ -1,11 +1,16 @@
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Bugfixes:
+
+- Remove br in README which breaks the pypi page.
+  [timo]
 
 
 1.0.1 (2018-02-15)
 ------------------
+
+Bugfixes:
 
 - Fix ReST in README.
   [timo]

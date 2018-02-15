@@ -6,8 +6,6 @@ A Robot Framework library for Webpack.
    :alt: kitconcept
    :target: https://kitconcept.com/
 
-|br|
-
 .. image:: https://travis-ci.org/kitconcept/robotframework-webpack.svg?branch=master
     :target: https://travis-ci.org/kitconcept/robotframework-webpack
 
@@ -142,7 +140,3 @@ Project Setup::
 Run Tests::
 
   $ .py27/bin/pybot tests
-
-.. |br| raw:: html
-
-   <br />
