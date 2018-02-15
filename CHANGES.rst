@@ -1,7 +1,14 @@
 1.0a9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Breaking Changes:
+
+- Refactor all params of the 'Start Webpack' keyword.
+  [timo]
+
+- Use a process group to start Webpack to being able to stop all child processes.
+  This fixes issues with leftover child processes with create-react-app.
+  [timo]
 
 
 1.0a8 (2016-07-21)

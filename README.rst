@@ -88,7 +88,8 @@ Optional parameters are:
   - check: string that the keyword looks for in the Webpack output to know that Webpack has been fully started (default is 'Compiled successfully').
   - debug: returns debug information
 
-Example with all parameters set:
+Example with all parameters set::
+
   Start Webpack  yarn start
   ..  path=tests/test-create-react-app
   ..  check=Compiled successfully
