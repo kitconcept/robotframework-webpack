@@ -140,9 +140,9 @@ Project Setup::
   $ pip install -r requirements.txt
   $ python setup.py develop
 
-Run Test::
+Run Tests::
 
-  $ pybot test.robot
+  $ .py27/bin/pybot tests
 
 .. |br| raw:: html
 
