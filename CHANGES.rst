@@ -3,8 +3,12 @@
 
 Breaking Changes:
 
-- Refactor all params of the 'Start Webpack' keyword.
+- Refactor 'Start Webpack' keyword.
+  Remove "host", "port", "content_base", "config", "webpack_bin_path" params.
+  Keep "path" param. Add required "command" param and an optional "check" param.
   [timo]
+
+Bugfixes:
 
 - Use a process group to start Webpack to being able to stop all child processes.
   This fixes issues with leftover child processes with create-react-app.
