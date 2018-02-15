@@ -38,6 +38,11 @@ Install robotframework-webpack with pip::
   $ pip install robotframework-webpack
 
 
+Documentation
+-------------
+
+https://kitconcept.github.io/robotframework-webpack/
+
 Usage
 -----
 
