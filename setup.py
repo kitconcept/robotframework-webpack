@@ -25,8 +25,8 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
     ],
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-    keywords='robotframework webpack javascript',
-    author='Timo Stollenwerk',
+    keywords='robotframework webpack javascript react angular vue',
+    author='Timo Stollenwerk | kitconcept GmbH',
     author_email='stollenwerk@kitconcept.com',
     url='https://kitconcept.com',
     license='Apache License 2.0',
