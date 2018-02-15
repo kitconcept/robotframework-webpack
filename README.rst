@@ -109,6 +109,27 @@ Example with all parameters set::
 Stop Webpack: Stopps the webpack process that has been started with 'Start Webpack'.
 The keyword has no parameters.
 
+Rationale
+---------
+
+You can start a Webpack process with standard Robot Framework keywords::
+
+  Run process  yarn run build  shell=True  cwd=${CURDIR}
+  Run process  yarn global add serve  shell=True  cwd=${CURDIR}
+  Start process  serve -s build  shell=True  cwd=${CURDIR}
+
+You can even kill the process at the end of the test (suite):
+
+  Terminate All Processes  kill=True
+
+Though. You will need to set a sleep statement to wait until the Webpack
+process is fully up and running. Since this can take a considerable amount
+of time it will make your test suite inefficient and hard to scale.
+
+Robot Framework Webpack checks the output of the Webpack process until it
+is fully up and running. As soon as Webpack is ready, the test can continue.
+
+
 Development
 -----------
 
