@@ -49,7 +49,6 @@ Usage
 In order to write your first robot test, make sure that you include Selenium2Library and WebpackLibrary. Create a test.robot file with the following content::
 
   *** Variables ***
-
   ${HOST}                 127.0.0.1
   ${PORT}                 8080
   ${BROWSER}              chrome
@@ -118,7 +117,7 @@ You can start a Webpack process with standard Robot Framework keywords::
   Run process  yarn global add serve  shell=True  cwd=${CURDIR}
   Start process  serve -s build  shell=True  cwd=${CURDIR}
 
-You can even kill the process at the end of the test (suite):
+You can even kill the process at the end of the test (suite)::
 
   Terminate All Processes  kill=True
 
