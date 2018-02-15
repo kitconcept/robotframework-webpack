@@ -2,5 +2,7 @@ robotframework==3.0
 robotframework-selenium2library==1.7.4
 robotframework-debuglibrary==0.4
 Selenium==2.53.1
-twine==1.6.3
-zest.releaser==6.6.4
+zest.releaser==6.12.4
+twine==1.9.1
+requests==2.18.4
+
