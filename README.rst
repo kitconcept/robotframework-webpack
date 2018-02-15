@@ -112,3 +112,6 @@ Run Test::
 
   $ pybot test.robot
 
+.. |br| raw:: html
+
+   <br />
