@@ -28,8 +28,7 @@ class WebpackLibrary:
     def start_webpack(self,
                       command='npm start',
                       path='.',
-                      check='Compiled successfully',
-                      debug=False):
+                      check='Compiled successfully'):
         """The `Start Webpack` keyword allows to provide additional arguments.
 
         `command` is the command that is used to start Webpack. Default value
@@ -49,11 +48,6 @@ class WebpackLibrary:
             self.path = os.path.realpath(path)
         except:
            logger.console('ERROR: File not found in path: {}'.format(path))
-
-        if isinstance(debug, str) and debug.lower() == 'true':
-            self.debug = True
-        else:
-            self.debug = False
 
         try:
             args = command.split(' ')
@@ -95,28 +89,12 @@ class WebpackLibrary:
             exit(1)
 
         self.webpack_pid = self.webpack_process.pid
-        if self.debug:
-            logger.console(
-                "Webpack process started (PID: %s)" % self.webpack_pid,
-            )
         stdout = []
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
-                if self.debug:
-                    logger.console(line)
-                    stdout.append(line)
                 if check in line:
-                    if self.debug:
-                        logger.console(
-                            "Webpack process ready (PID: %s)" %
-                            self.webpack_pid,
-                        )
                     break
 
     def stop_webpack(self):
         """Stop Webpack."""
         os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
-        if self.debug:
-            logger.console(
-                "Webpack process stopped (PID: %s)" % self.webpack_pid,
-            )

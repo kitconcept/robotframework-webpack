@@ -4,7 +4,7 @@
 Breaking Changes:
 
 - Refactor 'Start Webpack' keyword.
-  Remove "host", "port", "content_base", "config", "webpack_bin_path" params.
+  Remove "host", "port", "content_base", "config", "webpack_bin_path", "debug" params.
   Keep "path" param. Add required "command" param and an optional "check" param.
   [timo]
 
