@@ -1,7 +1,8 @@
 1.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove br from README.rst. This breaks on Pypi.
+  [timo]
 
 
 1.0.4 (2018-03-01)
