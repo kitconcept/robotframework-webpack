@@ -6,5 +6,5 @@ Library         DebugLibrary
 *** Test Cases ***
 
 Scenario: Run Stop Webpack with no Webpack process running
-  ${msg}=  Run keyword and expect error  *  Stop Webpack
+  ${msg}=  Run Keyword And Continue On Failure  Stop Webpack
   Should Start With	 ${msg}  Webpack process could not be terminated
