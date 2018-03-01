@@ -1,7 +1,8 @@
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix unicode decode error on Python 3 when Webpack process raises a runtime error.
+  [timo]
 
 
 1.1.0 (2018-03-01)

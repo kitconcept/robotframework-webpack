@@ -18,6 +18,14 @@ def safe_bytes(str):
         return str
 
 
+def safe_utf8(string):
+    """Returns bytes on Py3 and an utf-8 encoded string on Py2."""
+    if six.PY2:
+        return string.encode("utf-8")
+    else:
+        return string
+
+
 class WebpackLibrary:
     """WebpackLibrary is a Robot Framework library to start and stop Webpack.
     """
@@ -101,11 +109,11 @@ class WebpackLibrary:
         stdout = []
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
-                if safe_bytes(check) in line:
+                if safe_utf8(check) in safe_bytes(line):
                     return
             raise RuntimeError(
                 'Webpack process terminated unexpectedly: \n{}'.format(
-                    '\n'.join([x for x in self.webpack_process.stderr])
+                    safe_bytes('\n'.join([x for x in self.webpack_process.stderr]))
                 )
             )
 
