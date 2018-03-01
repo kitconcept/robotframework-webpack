@@ -1,6 +1,8 @@
 1.0.3 (unreleased)
 ------------------
 
+Bugfixes:
+
 - Raise RuntimeError when 'Start Webpack' and 'Stop Webpack' fail.
   [timo]
 
