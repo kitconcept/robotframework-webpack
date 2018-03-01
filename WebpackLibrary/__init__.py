@@ -3,10 +3,19 @@ from robot.api import logger
 
 import os
 import signal
+import six
 import subprocess
 
 __version__ = '1.0'
 ROBOT_LIBRARY_DOC_FORMAT = 'reST'
+
+
+def safe_bytes(str):
+    """Returns bytes on Py3 and a string on Py2."""
+    if six.PY3:
+        return bytes(str, 'utf-8')
+    else:
+        return str
 
 
 class WebpackLibrary:
@@ -92,7 +101,7 @@ class WebpackLibrary:
         stdout = []
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
-                if check in line:
+                if safe_bytes(check) in line:
                     return
             raise RuntimeError(
                 'Webpack process terminated unexpectedly: \n{}'.format(
