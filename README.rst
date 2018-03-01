@@ -2,10 +2,6 @@
 A Robot Framework library for Webpack.
 ==============================================================================
 
-.. image:: https://raw.githubusercontent.com/kitconcept/robotframework-djangolibrary/master/kitconcept.png
-   :alt: kitconcept
-   :target: https://kitconcept.com/
-
 .. image:: https://travis-ci.org/kitconcept/robotframework-webpack.svg?branch=master
     :target: https://travis-ci.org/kitconcept/robotframework-webpack
 
@@ -20,6 +16,10 @@ A Robot Framework library for Webpack.
 .. image:: https://img.shields.io/pypi/l/robotframework-webpack.svg
     :target: https://pypi.python.org/pypi/robotframework-webpack/
     :alt: License
+
+.. image:: https://raw.githubusercontent.com/kitconcept/robotframework-djangolibrary/master/kitconcept.png
+   :alt: kitconcept
+   :target: https://kitconcept.com/
 
 
 Introduction
