@@ -1,7 +1,8 @@
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Raise RuntimeError when 'Start Webpack' and 'Stop Webpack' fail.
+  [timo]
 
 
 1.0.2 (2018-02-15)

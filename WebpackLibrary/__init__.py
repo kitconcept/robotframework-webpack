@@ -93,8 +93,20 @@ class WebpackLibrary:
         with self.webpack_process.stdout:
             for line in iter(self.webpack_process.stdout.readline, b''):
                 if check in line:
-                    break
+                    return
+            raise RuntimeError(
+                'Webpack process terminated unexpectedly: \n{}'.format(
+                    '\n'.join([x for x in self.webpack_process.stderr])
+                )
+            )
 
     def stop_webpack(self):
         """Stop Webpack."""
-        os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
+        try:
+            os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
+        except OSError, e:
+            raise RuntimeError(
+                'Webpack process could not be terminated: {}'.format(
+                    e
+                )
+            )
