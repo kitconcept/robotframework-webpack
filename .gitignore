@@ -8,6 +8,7 @@ log.html
 .py3*/
 bin/
 node_modules/
+dist/
 output.xml
 report.html
 selenium-screenshot*
