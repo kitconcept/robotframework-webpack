@@ -17,6 +17,9 @@ A Robot Framework library for Webpack.
     :target: https://pypi.python.org/pypi/robotframework-webpack/
     :alt: License
 
+|br|
+|br|
+
 .. image:: https://raw.githubusercontent.com/kitconcept/robotframework-djangolibrary/master/kitconcept.png
    :alt: kitconcept
    :target: https://kitconcept.com/
@@ -140,3 +143,7 @@ Project Setup::
 Run Tests::
 
   $ .py27/bin/pybot tests
+
+.. |br| raw:: html
+
+   <br />
