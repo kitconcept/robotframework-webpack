@@ -1,7 +1,8 @@
 1.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Python 3 compatibility.
+  [timo]
 
 
 1.0.5 (2018-03-01)
