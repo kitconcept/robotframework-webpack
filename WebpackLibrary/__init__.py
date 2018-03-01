@@ -102,4 +102,11 @@ class WebpackLibrary:
 
     def stop_webpack(self):
         """Stop Webpack."""
-        os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
+        try:
+            os.killpg(os.getpgid(self.webpack_pid), signal.SIGTERM)
+        except OSError as e:
+            raise RuntimeError(
+                'Webpack process could not be terminated: {}'.format(
+                    e
+                )
+            )
