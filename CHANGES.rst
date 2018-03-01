@@ -1,6 +1,8 @@
 1.0.6 (unreleased)
 ------------------
 
+New Features:
+
 - Python 3 compatibility.
   [timo]
 
@@ -8,12 +10,16 @@
 1.0.5 (2018-03-01)
 ------------------
 
+Bugfixes:
+
 - Remove br from README.rst. This breaks on Pypi.
   [timo]
 
 
 1.0.4 (2018-03-01)
 ------------------
+
+Bugfixes:
 
 - Fix typo in 'Stop Webpack' keyword which breaks the entire library when it is imported.
   [timo]
