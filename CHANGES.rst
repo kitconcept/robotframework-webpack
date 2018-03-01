@@ -1,7 +1,8 @@
 1.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix typo in 'Stop Webpack' keyword which breaks the entire library when it is imported.
+  [timo]
 
 
 1.0.3 (2018-03-01)
