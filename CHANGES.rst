@@ -1,4 +1,4 @@
-1.0.4 (unreleased)
+1.0.4 (2018-03-01)
 ------------------
 
 - Fix typo in 'Stop Webpack' keyword which breaks the entire library when it is imported.
