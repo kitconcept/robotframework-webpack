@@ -13,7 +13,10 @@ ROBOT_LIBRARY_DOC_FORMAT = 'reST'
 def safe_bytes(str):
     """Returns bytes on Py3 and a string on Py2."""
     if six.PY3:
-        return bytes(str, 'utf-8')
+        try:
+            return bytes(str, 'utf-8')
+        except TypeError:
+            return str
     else:
         return str
 

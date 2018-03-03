@@ -1,7 +1,10 @@
 1.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Bugfixes:
+
+- Do not fail safe_bytes when passed string is already a bytes string.
+ [timo]
 
 
 1.1.2 (2018-03-03)
