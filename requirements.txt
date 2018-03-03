@@ -5,4 +5,5 @@ Selenium==2.53.1
 zest.releaser==6.12.4
 twine==1.9.1
 requests==2.18.4
+tox
 

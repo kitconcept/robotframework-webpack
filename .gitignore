@@ -1,6 +1,7 @@
 .vscode
 *.pyc
 .env/
+.tox
 log.html
 *.egg-info
 .cache
