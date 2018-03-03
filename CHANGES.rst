@@ -1,4 +1,4 @@
-1.1.1 (unreleased)
+1.1.1 (2018-03-03)
 ------------------
 
 - Fix unicode decode error on Python 3 when Webpack process raises a runtime error.
