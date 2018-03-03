@@ -1,11 +1,17 @@
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Bugfixes:
+
+- Fix "TypeError: a bytes-like object is required, not 'str'" on Python 3
+  when calling the 'Start Webpack' keyword.
+  [timo]
 
 
 1.1.1 (2018-03-03)
 ------------------
+
+Bugfixes:
 
 - Fix unicode decode error on Python 3 when Webpack process raises a runtime error.
   [timo]
