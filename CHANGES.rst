@@ -4,7 +4,7 @@
 Bugfixes:
 
 - Do not fail safe_bytes when passed string is already a bytes string.
- [timo]
+  [timo]
 
 
 1.1.2 (2018-03-03)
