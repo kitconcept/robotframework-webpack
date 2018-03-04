@@ -18,7 +18,6 @@ A Robot Framework library for Webpack.
     :alt: License
 
 |
-|
 
 .. image:: https://raw.githubusercontent.com/kitconcept/robotframework-djangolibrary/master/kitconcept.png
    :alt: kitconcept
