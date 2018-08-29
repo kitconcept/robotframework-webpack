@@ -4,6 +4,6 @@ robotframework-debuglibrary==1.1.4
 Selenium==3.14.0
 zest.releaser==6.15.1
 twine==1.11.0
-requests==2.18.4
+requests==2.19.1
 tox
 
