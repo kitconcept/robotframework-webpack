@@ -1,6 +1,6 @@
 robotframework==3.0.4
 robotframework-seleniumlibrary==3.1.1
-robotframework-debuglibrary==0.4
+robotframework-debuglibrary==1.1.4
 Selenium==2.53.1
 zest.releaser==6.12.4
 twine==1.9.1
