@@ -3,7 +3,7 @@ robotframework-seleniumlibrary==3.2.0
 robotframework-debuglibrary==1.1.4
 Selenium==3.14.1
 zest.releaser==6.15.2
-twine==1.11.0
+twine==1.12.1
 requests==2.19.1
 tox==3.5.2
 urllib3==1.23
