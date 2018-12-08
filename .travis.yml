@@ -12,7 +12,7 @@ addons:
     packages:
       - google-chrome-stable
 before_script:
-  - wget "http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"
+  - wget "http://chromedriver.storage.googleapis.com/2.44/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
   - "export DISPLAY=:99.0"
@@ -27,7 +27,7 @@ install:
 - (cd tests/test-create-react-app && npm install)
 - (cd tests/test-webpack-4 && npm install)
 script:
-- pybot tests
+- robot tests
 notifications:
   email:
   - stollenwerk@kitconcept.com
