@@ -28,6 +28,3 @@ install:
 - (cd tests/test-webpack-4 && npm install)
 script:
 - robot tests
-notifications:
-  email:
-  - stollenwerk@kitconcept.com
